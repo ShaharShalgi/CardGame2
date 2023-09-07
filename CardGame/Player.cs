@@ -16,6 +16,7 @@ namespace CardGame
         public void setHand(Card[] hand) {  this.hand = hand;}
         public Player(string name) 
         {
+            name = this.name;
         hand = new Card[5];
         }
         public void take(Card c) 
@@ -25,6 +26,7 @@ namespace CardGame
                 if (hand[i] == null)
                 {
                     hand[i] = c;
+                    i += hand.Length;
                 }
             }
         }
