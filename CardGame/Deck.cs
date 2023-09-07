@@ -10,6 +10,8 @@ namespace CardGame
     {
         private Card[] cards;
         private int top;
+        Random rnd = new Random();
+
 
         public Deck() 
         {
@@ -29,7 +31,15 @@ namespace CardGame
             }
         }
         public Card Peek() { return null; }
-        public void Shuffle() { }
+        public void Shuffle() 
+        {
+        for(int i = 0; i < cards.Length; i++)
+            {
+
+                int j = rnd.Next(i, cards.Length);
+                swap(i, j);
+            }
+        }
         public Card Deal() 
         {
             Card c = cards[top];
@@ -38,5 +48,12 @@ namespace CardGame
         }
 
         public void Reset() { top = 0; }
+        private void swap(int i, int j)
+        {
+            Card c = cards[j];
+            cards[j] = cards[i];
+            cards[i] = c;
+
+        }
     }
 }
